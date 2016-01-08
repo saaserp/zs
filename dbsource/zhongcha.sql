@@ -37,4 +37,12 @@ CREATE TABLE `shop` (
   `jointime` timestamp DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`shopid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+-- ---------------------------
+-- Tables structure for unit
+-- ---------------------------
+DROP TABLE IF EXISTS `unit`
+CREATE TABLE `unit` (
+  `unitid` int(11) NOT NULL AUTO_INCREMENT,
+  `unitname` text,
+  PRIMARY KEY(`unitid`)
+)ENGIN=InnoDB DEFAULT CHARSET=utf8;
