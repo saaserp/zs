@@ -21,10 +21,10 @@ public class Mediator extends BaseDao{
 		 
 		this.jsonStr=jsonStr;
 		switch(cmd){
-		case "login":
+		case "LoginProcesser":
 			p=new LoginProcesser();
 			break;
-		case "regester":
+		case "RegesterProcesser":
 
 			break;
 		}
