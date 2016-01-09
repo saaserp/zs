@@ -9,7 +9,9 @@ import org.json.JSONObject;
 import base.BaseDao;
 import base.IProcess;
 
+import service.GetGoodsInfoProcesser;
 import service.LoginProcesser;
+import service.RegesterProcesser;
 
 
 public class Mediator extends BaseDao{
@@ -25,9 +27,12 @@ public class Mediator extends BaseDao{
 			p=new LoginProcesser();
 			break;
 		case "RegesterProcesser":
-
+			p=new RegesterProcesser();
 			break;
-		}
+		case "GetGoodsInfoProcesser":
+			p=new GetGoodsInfoProcesser();
+			break;
+			}
 	}
 
 	public  JSONArray process(){
