@@ -19,10 +19,9 @@ CREATE TABLE `goods` (
   `goodsname` text,
   `price` decimal(5,2) DEFAULT NULL,
   `pic` text DEFAULT NULL,
-  `shopid` int(11) NOT NULL, 
   `classid` int(11) NOT NULL,
   `shopid` int(11) NOT NULL,
-  `last_rfeash_time` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `last_refeash_time` timestamp DEFAULT CURRENT_TIMESTAMP,
   `last_refeash_user` int(11) NOT NULL,
   PRIMARY KEY(`goodsid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -42,17 +41,18 @@ CREATE TABLE `shop` (
 -- ---------------------------
 -- Tables structure for unit
 -- ---------------------------
-DROP TABLE IF EXISTS `unit`
-CREATE TABLE `unit` (
-  `unitid` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `unit`;
+CREATE TABLE  `unit` (
+  `unitid` int(11),
   `unitname` text,
   PRIMARY KEY(`unitid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ---------------------------
 -- Table for class
 -- ---------------------------
+DROP TABLE IF EXISTS `class`;
 CREATE TABLE `class` (
-  `classid` int(11) NOT NULL AUTO_INCREMENT,
+  `classid` int(11) ,
   `fatherid` int(11),
   `classname` text,
   `unitid` int(11) NOT NULL,
