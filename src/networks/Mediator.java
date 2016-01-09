@@ -4,14 +4,13 @@ package networks;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
-import base.BaseDao;
-import base.IProcess;
 
 import service.GetGoodsInfoProcesser;
+import service.GetSimiarGoodsInNearShopProcesser;
 import service.LoginProcesser;
 import service.RegesterProcesser;
+import base.BaseDao;
+import base.IProcess;
 
 
 public class Mediator extends BaseDao{
@@ -31,6 +30,9 @@ public class Mediator extends BaseDao{
 			break;
 		case "GetGoodsInfoProcesser":
 			p=new GetGoodsInfoProcesser();
+			break;
+		case "GetSimiarGoodsInNearShopProcesser":
+			p=new GetSimiarGoodsInNearShopProcesser();
 			break;
 			}
 	}

@@ -50,7 +50,6 @@ CREATE TABLE `unit` (
   `unitid` int(11) NOT NULL AUTO_INCREMENT,
   `unitname` text,
   PRIMARY KEY(`unitid`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ---------------------------
 -- Table for class
@@ -62,6 +61,4 @@ CREATE TABLE `class` (
   `unitid` int(11) NOT NULL,
   PRIMARY KEY(`classid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-=======
-)ENGIN=InnoDB DEFAULT CHARSET=utf8;
->>>>>>> 9aff5181103a66cf5b76216eb34238b85a17c8a6
+

@@ -19,12 +19,9 @@ CREATE TABLE `goods` (
   `goodsname` text,
   `price` decimal(5,2) DEFAULT NULL,
   `pic` text DEFAULT NULL,
-<<<<<<< HEAD
   `shopid` int(11) NOT NULL, 
-  'classid' int(11) NOT NULL,
-=======
+  `classid` int(11) NOT NULL,
   `shopid` int(11) NOT NULL,
->>>>>>> 9aff5181103a66cf5b76216eb34238b85a17c8a6
   `last_rfeash_time` timestamp DEFAULT CURRENT_TIMESTAMP,
   `last_refeash_user` int(11) NOT NULL,
   PRIMARY KEY(`goodsid`)
@@ -50,7 +47,6 @@ CREATE TABLE `unit` (
   `unitid` int(11) NOT NULL AUTO_INCREMENT,
   `unitname` text,
   PRIMARY KEY(`unitid`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- ---------------------------
 -- Table for class
@@ -62,6 +58,4 @@ CREATE TABLE `class` (
   `unitid` int(11) NOT NULL,
   PRIMARY KEY(`classid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-=======
-)ENGIN=InnoDB DEFAULT CHARSET=utf8;
 
