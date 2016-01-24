@@ -37,9 +37,9 @@ public class RegesterProcesser extends BaseDao implements IProcess{
 		//tell him the result,true or false
 		JSONObject jo=new JSONObject();
 		try {
-			if(!isPhoneExits(map.get("phone"))){
+			if(!isPhoneExits(map.get("id"))){
 				
-				int result=regist(map.get("phone"),"sss","sssss");
+				int result=regist(map.get("id"),"",map.get("password"));
 				if(result==-1){
 					//注册失败
 					jo.put("info", "服务器繁忙，清稍候再注册");
@@ -56,6 +56,7 @@ public class RegesterProcesser extends BaseDao implements IProcess{
 			{
 				jo.put("result", false);
 				jo.put("info", "用户已存在");
+				jo.put("resultCode",1);
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

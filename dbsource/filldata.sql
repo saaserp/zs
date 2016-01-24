@@ -9,14 +9,14 @@ insert into user (phone,password,nickname) values('1340713894','123456','dsdsa')
 -- shop
 -- ----------------------------------
 
-insert into shop(shopname,pic,longitude,latitude)value("武昌量贩","123.jpg",123.232,23.432);
-insert into shop(shopname,pic,longitude,latitude)value("中百仓储","123.jpg",123.232,23.432);
-insert into shop(shopname,pic,longitude,latitude)value("大洋百货","123.jpg",123.232,23.432);
-insert into shop(shopname,pic,longitude,latitude)value("大毛超市","123.jpg",123.232,23.432);
-insert into shop(shopname,pic,longitude,latitude)value("一食堂水果店","123.jpg",123.232,23.432);
-insert into shop(shopname,pic,longitude,latitude)value("广信国际大酒店","123.jpg",123.232,23.432);
-insert into shop(shopname,pic,longitude,latitude)value("苹果电子产品店","123.jpg",123.232,23.432);
-insert into shop(shopname,pic,longitude,latitude)value("西八超市","123.jpg",123.232,23.432);
+insert into shop(shopname,pic,longitude,latitude)value("武昌量贩","123.jpg",1.81920e+04,8.95400e+03);
+insert into shop(shopname,pic,longitude,latitude)value("中百仓储","123.jpg",1.81920e+04,9.85600e+03);
+insert into shop(shopname,pic,longitude,latitude)value("大洋百货","123.jpg",1.81920e+04,1.13190e+04);
+insert into shop(shopname,pic,longitude,latitude)value("大毛超市","123.jpg",1.82720e+04,8.62400e+03);
+insert into shop(shopname,pic,longitude,latitude)value("一食堂水果店","123.jpg",1.84160e+04,7.34800e+03);
+insert into shop(shopname,pic,longitude,latitude)value("广信国际大酒店","123.jpg",1.84160e+04,8.29400e+03);
+insert into shop(shopname,pic,longitude,latitude)value("苹果电子产品店","123.jpg",1.20000e+03,1.14400e+04);
+insert into shop(shopname,pic,longitude,latitude)value("西八超市","123.jpg",1.20000e+03,2.68400e+03);
 -- -----------------------------------------------------
 -- -unit
 -- -----------------------------------------------------
@@ -39,6 +39,9 @@ insert into class(classid,classname,fatherid,unitid)
 value(3,'蔬菜',0,2);
 insert into class(classid,classname,fatherid,unitid)
 value(4,'日常用品',0,1);
+insert into class(classid,classname,fatherid,unitid)
+value(5,'日常用品',0,5);
+ 
 -- ----------------------------------------------------
 -- goods
 -- ----------------------------------------------------

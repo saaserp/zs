@@ -1,6 +1,8 @@
 package base;
 
 
+import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +11,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -143,21 +146,18 @@ public abstract class BaseDao {
 	public List<Map<String,String>> quryBySql2(String sql){
 		Connection conn = null;
 		Statement stmt = null;
+	 
 		ResultSet rs = null;
-		List<Map<String,String>> retList=new ArrayList<>();
+		List<Map<String,String>> retList=new ArrayList<>();;
 		boolean flag=false;
 		try {
 			conn = dbConn.getConnection();
 			stmt = conn.createStatement();
-			try{
-				rs = stmt.executeQuery(sql);
-				rs.first();
-			}catch(SQLException e){
-				rs=null;
-			}
+			rs = stmt.executeQuery(sql);
+			 
 			if(rs==null)
 				return null;
-
+			
 			while (rs.next()) {
 				flag=true;
 				Map<String,String> map=new HashMap<String, String>();
@@ -268,6 +268,9 @@ public abstract class BaseDao {
 
 	}
 	public JSONArray toJSON(List<Map<String,String>> mlist){
+		if(mlist==null){
+			return null;
+		}
 		JSONArray jarray=new JSONArray();
 		for(Map<String, String> j:mlist){
 			jarray.put(this.toJSON(j));
@@ -297,5 +300,55 @@ public abstract class BaseDao {
 
 
 	}	 
+	 public static boolean isWindowsOS(){
+		    boolean isWindowsOS = false;
+		    String osName = System.getProperty("os.name");
+		    if(osName.toLowerCase().indexOf("windows")>-1){
+		     isWindowsOS = true;
+		    }
+		    return isWindowsOS;
+		  }
+	public static String getLocalIP(){
+	    String sIP = "";
+	    InetAddress ip = null; 
+	    try {
+	     //如果是Windows操作系统
+	     if(isWindowsOS()){
+	      ip = InetAddress.getLocalHost();
+	     }
+	     //如果是Linux操作系统
+	     else{
+	      boolean bFindIP = false;
+	      Enumeration<NetworkInterface> netInterfaces = (Enumeration<NetworkInterface>) NetworkInterface
+	        .getNetworkInterfaces();
+	      while (netInterfaces.hasMoreElements()) {
+	       if(bFindIP){
+	        break;
+	       }
+	       NetworkInterface ni = (NetworkInterface) netInterfaces.nextElement();
+	       //----------特定情况，可以考虑用ni.getName判断
+	       //遍历所有ip
+	       Enumeration<InetAddress> ips = ni.getInetAddresses();
+	       while (ips.hasMoreElements()) {
+	        ip = (InetAddress) ips.nextElement();
+	        if( ip.isSiteLocalAddress()  
+	                   && !ip.isLoopbackAddress()   //127.开头的都是lookback地址
+	                   && ip.getHostAddress().indexOf(":")==-1){
+	            bFindIP = true;
+	               break;  
+	           }
+	       }
 
+	      }
+	     }
+	    }
+	    catch (Exception e) {
+	     e.printStackTrace();
+	    }
+
+	    if(null != ip){
+	     sIP = ip.getHostAddress();
+	    }
+	    return sIP;
+	  }
 }

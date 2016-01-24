@@ -17,14 +17,14 @@ CREATE TABLE `goods` (
   `goodsid` int(11) NOT NULL AUTO_INCREMENT,
   `goods_ecode` text,
   `goodsname` text,
-  `price` decimal(5,2) DEFAULT NULL,
+  `price` decimal(15,2) DEFAULT NULL,
   `pic` text DEFAULT NULL,
   `classid` int(11) NOT NULL,
   `shopid` int(11) NOT NULL,
   `last_refeash_time` timestamp DEFAULT CURRENT_TIMESTAMP,
   `last_refeash_user` int(11) NOT NULL,
   PRIMARY KEY(`goodsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 -- ---------------------------
 -- Table shop
 -- ---------------------------

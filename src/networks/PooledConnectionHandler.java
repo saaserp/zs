@@ -19,10 +19,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import base.BaseDao;
 import base.FileLog;
 
 public class PooledConnectionHandler implements Runnable {
@@ -32,7 +32,7 @@ public class PooledConnectionHandler implements Runnable {
 	static String cmdEnd = "<<";
 	 
 	private Map<Long, FileLog> datas = new HashMap<Long, FileLog>();
-	private String uploadPath="D:/uploadFile/";
+	private String uploadPath="/home/anonymous/Desktop/snowy-master/static/";
 
 
 	 
@@ -82,12 +82,14 @@ public class PooledConnectionHandler implements Runnable {
 						File file = null;
 						int position = 0;
 						if(log==null){
-							String path ="qufei";//new SimpleDateFormat("yyyy_MM_dd_HH_mm").format(new Date());
+							String path ="zhongcha";//new SimpleDateFormat("yyyy_MM_dd_HH_mm").format(new Date());
 							File dir = new File(uploadPath+ path);
 							if(!dir.exists()) dir.mkdirs();
 							file = new File(dir, filename);
 							if(file.exists()){
+								System.out.println(filename);
 								filename = filename.substring(0, filename.indexOf(".")-1)+ dir.listFiles().length+ filename.substring(filename.indexOf("."));
+								
 								file = new File(dir, filename);
 							}
 							save(id, file);
@@ -103,9 +105,9 @@ public class PooledConnectionHandler implements Runnable {
 							}
 						}						
 						OutputStream outStream = connection.getOutputStream();
-						String response = "sourceid="+ id+ ";position="+ position+ ";filePath="+file.getPath()+"\r\n";
+						String response = "sourceid="+ id+ ";position="+ position+ ";filePath="+"http://192.168.1.101/static/zhongcha/"+file.getName()+"\r\n";
 						
-						System.out.print("�����ͻ���"+response.toString());
+						System.out.print("to client:"+response.toString());
 						outStream.write(response.getBytes());
 						
 						RandomAccessFile fileOutStream = new RandomAccessFile(file, "rwd");

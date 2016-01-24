@@ -40,7 +40,7 @@ public class LoginProcesser extends BaseDao implements IProcess{
 			try {
 				jo.put("result", false);
 				jo.put("info", "用戶不存在");
-				jo.put("resultCode", 1);
+				jo.put("resultCode",1);
 				jsa.put(jo);
 				
 				return jsa;
@@ -48,7 +48,7 @@ public class LoginProcesser extends BaseDao implements IProcess{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		} 
 		
 		Map<String ,String> map=login(
 				jsonStr.get("id").toString(), 

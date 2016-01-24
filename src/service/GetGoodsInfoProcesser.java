@@ -35,7 +35,7 @@ public class GetGoodsInfoProcesser extends BaseDao implements IProcess{
 			ja.put(super.toJSON(mm));
 		}
 		else{
-			String sql="select * from goods,shop where shop.shopid=goods.shopid ";
+			String sql="select * from goods,shop where shop.shopid=goods.shopid and goods_ecode='"+map.get("goods_ecode")+"' ";
 
 			Map<String,String> mp=super.quryBySql1(sql);
 			mm.put("result", true+"");
